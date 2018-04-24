@@ -2,12 +2,12 @@ package com.internousdev.template.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import com.internousdev.template.util.DBConnecter;
+import com.internousdev.template.util.DBConnector;
 import com.internousdev.template.util.DateUtil;
 
 public class UserCreateCompleteDAO {
-	private DBConnecter dbConnecter = new DBConnecter();
-	private Connection connection = dbConnector.getConnection();
+	private DBConnector dbConnecter = new DBConnector();
+	private Connection connection = dbConnecter.getConnection();
 	private DateUtil dateUtil = new DateUtil();
 	
 	private String sql = "INSERT INTO login_user_transaction(login_id, login_pass, user_name,insert_date)VALUSE(?,?,?,?)";

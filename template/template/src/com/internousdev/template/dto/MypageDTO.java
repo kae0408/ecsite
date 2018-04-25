@@ -1,10 +1,10 @@
 package com.internousdev.template.dto;
 
-public class MyPageDTO {
+public class MypageDTO {
 	public String itemName;
 	public String totalPrics;
-	public String totalCount;
 	public String payment;
+	public String userName;
 	
 	public String getItemName() {
 		return itemName;
@@ -22,14 +22,6 @@ public class MyPageDTO {
 		this.totalPrics = totalPrics;
 	}
 	
-	public String getTotalCount() {
-		return totalCount;
-	}
-	
-	public void setTotalCount(String totalCount) {
-		this.totalCount = totalCount;
-	}
-	
 	public String getPayment() {
 		return payment;
 	}
@@ -38,6 +30,12 @@ public class MyPageDTO {
 		this.payment = payment;
 	}
 	
-
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.payment = userName;
+	}
 
 }

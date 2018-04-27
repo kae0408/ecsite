@@ -55,7 +55,6 @@ text-align: center;}
 	
 	<div id="main">
 		<div id="top">
-		前の続きです。
 		<p>UserCreateConfirm</p>
 		</div>
 	<div>

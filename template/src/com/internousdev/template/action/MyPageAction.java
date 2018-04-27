@@ -12,6 +12,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	public MyPageDAO mypageDAO = new MyPageDAO();
 	public MyPageDTO mypageDTO = new MyPageDTO();
 	public String deleteFlg;
+	private String result;
 	public String execute() throws SQLException{
 		//商品履歴を削除しない場合
 		if(deleteFlg == null) {
@@ -49,7 +50,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		return deleteFlg;
 	}
 	
-	public String setDeleteFlg(String deleteFlg) {
+	public void setDeleteFlg(String deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
 	@Override

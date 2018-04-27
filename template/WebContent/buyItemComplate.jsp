@@ -50,8 +50,9 @@ text-align: center;}
 
 	<div id="main">
 		<div id="top">
-		</div>
+		
 	<p>BuyItemComplete</p>
+	</div>
 		<div>
 		<p>購入手続きが完了致しました。</p>
 			<div>

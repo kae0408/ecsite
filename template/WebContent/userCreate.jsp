@@ -91,9 +91,12 @@ clear:both;
 					<label>ユーザー名:</label>
 				</td>
 				<td>
-					<s:submit value="登録"/>
+				<input type="text" name="userName" value="" />
 				</td>
-			</tr>
+				</tr>
+					<s:submit value="登録"/>
+				
+			
 			</s:form>
 			</table>
 			<div>

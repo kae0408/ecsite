@@ -5,7 +5,7 @@ public class LoginDTO {
 	private String loginPassword;
 	private String userName;
 	private boolean loginFlg = false;
-	
+	/**/
 	public String getLoginId() {
 		return loginId;
 	}

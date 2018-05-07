@@ -36,8 +36,9 @@
 <br/>
 <div class="newuser">
 	<span>新規ユーザー登録は
-	<a href='<s:url action="UserCreateAction" />'>こちら</a>
-	</span>
+	<a href='<s:url action="UserCreateAction" />'>こちら</a></span>
+	<span>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></span>
+	
 </div>
 </div>
 	<div>

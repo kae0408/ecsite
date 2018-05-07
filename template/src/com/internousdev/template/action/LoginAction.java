@@ -18,14 +18,17 @@ public String execute(){
 	LoginDAO loginDAO =new LoginDAO();
 	LoginDTO loginDTO =new LoginDTO();
 	BuyItemDAO buyItemDAO =new BuyItemDAO();
-	
+	/*resultは結果と言う意味*/
 	result = ERROR;
+	/*loginDAOのgetLoginUserInfoメソッドを呼び出しインスタンス化したloginDTOに代入*/
 	loginDTO = loginDAO.getLoginUserInfo(loginUserId,loginPassword);
+	/*ページ間で変数の内容を維持するための仕組みSessionAwareインターフェースを利用します。*/
+	/**/
 	session.put("loginUser",loginDTO);
 		
-	/**入力値からユーザー情報の検索をします**/
+	//入力値からユーザーの情報の検索をします。ログイン情報が成功した場合、つぎの画面で「商品情報」が必要なため商品情報を取得します。
 	if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
-
+		
 		result = SUCCESS;
 		BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 		session.put("login_user_id",loginDTO.getLoginId());

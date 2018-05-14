@@ -67,53 +67,63 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 				/** ここから支払い方法を選択する処理 */
 				String payment;
 				if(pay == 1) {
-					payment = "現金払い";
+
+					payment="現金払い";
 					session.put("pay",payment);
+					buyItemDTO.setPay(payment);
+
+				} else {
+					payment="クレジットカード";
+					session.put("pay",payment);
+					buyItemDTO.setPay(payment);
 				}
+				/*ここまで支払い方法選択処理*/
+				buyItemDTOList.add(buyItemDTO);
 			}
+			/*ここまで繰り返す*/
+			session.put("list",buyItemDTOList);
 		}
-	}
-	
-	
-	private int stock;
-	private String pay;
-	public Map<String, Object> session;
-	private String result;
-	
-	public String execute() {
-		result = SUCCESS;
 		
-		session.put ("stock",stock);
-		int intStock = Integer.parseInt(session.get("stock").toString());
-		int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
-		
-		session.put("buyItem_price",intStock * intPrice);
-		String payment;
-		
-		if(pay.equals("1")) {
-			payment = "現金払い";
-			session.put("pay",payment);
-		}else {
-			payment = "クレジットカード";
-			session.put("pay",payment);
+		//複数購入の場合の合計処理
+		if(buyItemDTOList.size()>1){
+			int totalPrice=0;
+			for(int a = 0; a<buyItemDTOList.size(); a++){
+				totalPrice=totalPrice + buyItemDTOList.get(a).getTotal_price();
+			}
+			System.out.println(totalPrice);
+			session.put("totalPrice", totalPrice);
 		}
+		
 		return result;
 	}
-	public int getStock() {
-		return stock;
+	public List<String> getCount(){
+		return count;
 	}
-	public void setStock(int stock) {
-		this.stock=stock;
+	
+	public void setCouny(List<String> count) {
+		this.count = count;
 	}
-	public String getPay() {
+	
+	public int getpay() {
 		return pay;
 	}
-	public void setPay(String pay) {
-		this.pay = pay;
+	
+	public void setPay(int pay){
+		this.pay =pay;
 	}
+	
+	public ArrayList<BuyItemDTO> getBuyItemDTOList(){
+		return buyItemDTOList;
+	}
+	
+	public void setBuyItemDTOList(ArrayList<BuyItemDTO> buyItemDTOList) {
+		this.buyItemDTOList = buyItemDTOList;
+	}
+	
 	@Override
-	public void setSession(Map<String, Object>session) {
+	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	
 
 }

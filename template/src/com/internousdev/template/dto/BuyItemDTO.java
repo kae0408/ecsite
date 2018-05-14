@@ -50,15 +50,19 @@ public class BuyItemDTO {
 		this.count = count;
 	}
 	
+	public int getTotal_price() {
+		return total_price;
+	}
+	
 	public void setTotal_price(int total_price) {
 		this.total_price = total_price;
 	}
 	
-	public String getpay() {
+	public String getPay() {
 		return pay;
 	}
 	
-	public void setpay(String pay) {
+	public void setPay(String pay) {
 		this.pay = pay;
 	}
 	
@@ -75,5 +79,7 @@ public class BuyItemDTO {
 	public void setTotal_count(int total_count){
 		this.total_count=total_count;
 	}
+
+	
 
 }

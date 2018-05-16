@@ -35,8 +35,8 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 		 * サイズ取得 * .size();
 		 */
 		/*ここから合計金額を計算する処理*/
-		for(int i =0; i <count.size(); i++) {
-			BuyItemDTO buyItemDTO = new BuyItemDTO();
+		for(int i=0; i<count.size(); i++) {
+				BuyItemDTO buyItemDTO=new BuyItemDTO();
 			
 			String buyItemName = list.get(i).getItemName();
 			session.put("itemName",buyItemName);

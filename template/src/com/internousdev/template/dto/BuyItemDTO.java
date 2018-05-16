@@ -7,10 +7,12 @@ public class BuyItemDTO {
 	public String itemName;
 	
 	public  String itemPrice;
+
+	public int total_price;
 	
 	public int count;
 	
-	public int total_price;
+	public int total_count;
 	
 	public String pay;
 	

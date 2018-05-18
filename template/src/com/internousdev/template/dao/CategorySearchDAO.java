@@ -11,7 +11,7 @@ import com.internousdev.template.util.DBConnector;
 
 public class CategorySearchDAO {
 	
-	private DBConnector dBConnecter = new DBConnector();
+	private DBConnector dbConnector = new DBConnector();
 	
 	private Connection connection = dbConnector.getConnection();
 	
@@ -55,4 +55,4 @@ public class CategorySearchDAO {
 	}
 	}
 
-}
+

@@ -12,39 +12,51 @@ import com.internousdev.template.util.DBConnector;
 
 public class BuyItemDAO {
 
-		DBConnector dbConnector = new DBConnector();
-		
-		Connection connection = dbConnector.getConnection();
-		
-		private List<BuyItemDTO> buyItemDTOList=new ArrayList<BuyItemDTO>();
-		
-		//商品情報取得メソッド
-		public List<BuyItemDTO> getBuyItemInfo(){
-			String sql = "SELECT id, item_name, item_price, item_stock FROM item_info_transaction";
-		
-		
+	private DBConnector dbConnector = new DBConnector();
+
+	private Connection connection = dbConnector.getConnection();
+
+	private List<BuyItemDTO> buyItemDTOList = new ArrayList<BuyItemDTO>();
+
+	/**
+	 * 商品情報取得メソッド
+	 */
+
+	public List<BuyItemDTO> getBuyItemInfo() {
+
+		String sql = "SELECT id, item_name, item_price, item_stock, item_category, item_description, img_file_path FROM item_info_transaction";
+
+		//DBから取得した値をBuyItemDTOの変数に格納
+		//BuyItemDTOに格納した値をBuyItemDTOListに格納
+
 		try {
-			PreparedStatement PreparedStatement = connection.prepareStatement(sql);
-			ResultSet resultSet = PreparedStatement.executeQuery();
-			
+
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
 			while(resultSet.next()) {
+
 				BuyItemDTO dto = new BuyItemDTO();
+
 				dto.setId(resultSet.getInt("id"));
 				dto.setItemName(resultSet.getString("item_name"));
-				dto.setItemPrics(resultSet.getString("item_price"));
+				dto.setItemPrice(resultSet.getInt("item_price"));
 				dto.setItem_stock(resultSet.getInt("item_stock"));
+				dto.setItem_category(resultSet.getString("item_category"));
+				dto.setItem_description(resultSet.getString("item_description"));
+				dto.setImage_file_path(resultSet.getString("img_file_path"));
+
 				buyItemDTOList.add(dto);
 			}
-			
-		}catch(Exception e) {
+
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
+
 		return buyItemDTOList;
 	}
-		public List<BuyItemDTO> getBuyItemDTO() {
-			return buyItemDTOList;
-		}
+
+	public List<BuyItemDTO> getBuyItemDTOList() {
+		return buyItemDTOList;
+	}
 }
-	
-
-

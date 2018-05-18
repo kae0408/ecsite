@@ -6,7 +6,7 @@ public class BuyItemDTO {
 	
 	public String itemName;
 	
-	public  String itemPrice;
+	public  int itemPrice;
 
 	public int total_price;
 	
@@ -18,7 +18,13 @@ public class BuyItemDTO {
 	
 	public int item_stock;
 	
-	public int total_count;
+	private String item_category;
+
+	private String item_description;
+
+	private String image_file_path;
+	
+	
 	
 	public String getItemName() {
 		return itemName;
@@ -28,11 +34,11 @@ public class BuyItemDTO {
 		this.itemName = itemName;
 	}
 	
-	public String getItemPrice() {
+	public int getItemPrice() {
 		return itemPrice;
 	}
-	
-	public void setItemPrics(String itemPrice) {
+
+	public void setItemPrice(int itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 	
@@ -51,6 +57,8 @@ public class BuyItemDTO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	
+	
 	
 	public int getTotal_price() {
 		return total_price;
@@ -80,6 +88,30 @@ public class BuyItemDTO {
 	}
 	public void setTotal_count(int total_count){
 		this.total_count=total_count;
+	}
+	
+	public String getItem_category() {
+		return item_category;
+	}
+
+	public void setItem_category(String item_category) {
+		this.item_category = item_category;
+	}
+
+	public String getItem_description() {
+		return item_description;
+	}
+
+	public void setItem_description(String item_description) {
+		this.item_description = item_description;
+	}
+
+	public String getImage_file_path() {
+		return image_file_path;
+	}
+
+	public void setImage_file_path(String image_file_path) {
+		this.image_file_path = image_file_path;
 	}
 
 	

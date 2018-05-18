@@ -1,25 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Style-Type" content="text/css" />
-	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<meta http-equiv="imagetoolbar" content="no" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
-	<meta charset="utf-8">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
 
-<!-- ファビコン -->
-	<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=eh53o8d8gl" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=eh53o8d8gl" type="image/x-icon" />
 	<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=eh53o8d8gl" type="image/gif" />
-	<!-- end of iconj.com favicon code -->
-	<title>BuyItem画面</title>
+<title>BuyItem画面</title>
 </head>
 <!-- フッター固定の為のdiv(container) -->
 <div class="container">
@@ -60,18 +54,11 @@
 
 	<div class="push"></div>
 
-	<img src="./img/cart.png" style="width:40px;">
+	<img src="./image/cupcake.png" style="width:40px;">
 
 	<div class="icon-push"></div>
 
-	<div class="error-message">
-		<s:if test="buyItemErrorMessage != null">
-		<s:property value="buyItemErrorMessage"/>
-		</s:if>
-		<div class="push"></div>
-	</div>
 
-	<div class="main-content">
 	<!-- カテゴリ表示機能 -->
 	<s:form action="CategorySearchAction">
 	<tr>
@@ -107,8 +94,7 @@
 
 <!-- 商品テーブル -->
 <div class="item-table">
-ああああああ
-	<table>
+
 	<s:form action="BuyItemAction">
 
 
@@ -129,6 +115,7 @@
 
 			<span>値段:</span>
 			<s:property value="itemPrice" /><span>円</span><br>
+
 			<span>在庫:</span>
 			<s:if test="item_stock>0">
 				<s:property value="item_stock"/>
@@ -137,29 +124,6 @@
 				<span class="error-message">品切れ</span>
 			</s:else>
 			</a>
-ああああ
-			<br>
-ああああ
-			<span>購入個数:</span>
-			<s:property value="item_stock"/>個
-			<s:if test="item_stock>0">
-				<div class="select-box">
-				<select name="count">
-					<option value="0" selected="selected">-</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-				</div>
-			</s:if>
-			<s:else>
-				<select name="count">
-					<option value="0" selected="selected">0</option>
-				</select>
-			</s:else>
-
 			</div>
 			</dd>
 		</dl>
@@ -183,6 +147,7 @@
 
 			<span>値段:</span>
 			<s:property value="itemPrice" /><span>円</span><br>
+
 			<span>在庫:</span>
 			<s:if test="item_stock>0">
 				<s:property value="item_stock"/>
@@ -191,27 +156,6 @@
 				<span class="error-message">品切れ</span>
 			</s:else>
 			</a>
-
-			<br>
-			<span>購入個数:</span>
-			<s:if test="item_stock>0">
-				<div class="select-box">
-				<select name="count">
-					<option value="0" selected="selected">-</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-				</div>
-			</s:if>
-			<s:else>
-				<select name="count">
-					<option value="0" selected="selected">0</option>
-				</select>
-			</s:else>
-
 			</div>
 			</dd>
 		</dl>
@@ -245,28 +189,6 @@
 				<span class="error-message">品切れ</span>
 			</s:else>
 			</a>
-
-			<br>
-
-			<span>購入個数:</span>
-			<s:if test="item_stock>0">
-				<div class="select-box">
-				<select name="count">
-					<option value="0" selected="selected">-</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-				</div>
-			</s:if>
-			<s:else>
-				<select name="count">
-					<option value="0" selected="selected">0</option>
-				</select>
-			</s:else>
-
 			</div>
 			</dd>
 		</dl>
@@ -282,82 +204,42 @@
 
 			<div class="item_description">
 			<a href="#">
+
 			<span class="remark"><s:property value="item_description"/></span>
 			<img class="image" style="width:150px; height:100px;" src="<s:property value='image_file_path'/>" >
 
 			<br><br>
-
 			<s:property value="itemName" /><br>
-
 			<span>値段:</span>
-
 			<s:property value="itemPrice" /><span>円</span><br>
-
 			<span>在庫:</span>
-				<s:if test="item_stock>0">
-					<s:property value="item_stock"/>
-				</s:if>
-				<s:else>
-					<span class="error-message">品切れ</span>
-				</s:else>
-			</a>
-			<br>
 
-			<span>購入個数:</span>
-				<s:if test="item_stock>0">
-					<div class="select-box">
-					<select name="count">
-						<option value="0" selected="selected">-</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
-			</div>
-				</s:if>
-				<s:else>
-					<select name="count">
-						<option value="0" selected="selected">0</option>
-					</select>
-				</s:else>
+			<s:if test="item_stock>0">
+				<s:property value="item_stock"/>
+			</s:if>
+			<s:else>
+				<span class="error-message">品切れ</span>
+			</s:else>
+
+			</a>
 			</div>
 			</dd>
 		</dl>
-
 	</s:iterator>
 	</s:else>
 
-<!-- 繰り返し処理ここまで、以下は支払方法選択 -->
-
-<div class="clear"></div>
-<div class="pay-push"></div>
-
-	<tr>
-		<td><span>支払方法:</span></td>
-		<td>
-			<input type="radio" name="pay" value="1" checked="checked">現金払い
-			<input type="radio" name="pay" value="2">クレジットカード
-		</td>
-	</tr>
-
-	<tr>
-		<td><s:submit class="button" value="購入"/></td>
-	</tr>
+	<div class="clear"><br></div>
 
 	</s:form>
-	</table>
-</div>
 
 	<div class="buyItemDown-push"></div>
 
 	<div id="text-link">
-		<p><a href='<s:url action="MyPageAction" />'>マイぺージはこちら</a></p>
+		<p><a href='<s:url action="GoLoginAction" />'>商品を購入する場合はこちらからログインしてください。</a></p>
 		<p><a href='<s:url action="GoHomeAction" />'>Homeへ戻る場合はこちら</a></p>
 	</div>
-	</div>
 
-
+</div>
 </div>
 
 <!-- メインとフッターの間隔調整用div -->

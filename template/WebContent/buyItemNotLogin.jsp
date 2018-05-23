@@ -13,7 +13,7 @@
 
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=eh53o8d8gl" type="image/x-icon" />
 	<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=eh53o8d8gl" type="image/gif" />
-<title>BuyItem画面</title>
+<title>BuyItemNotLogin画面</title>
 </head>
 <!-- フッター固定の為のdiv(container) -->
 <div class="container">
@@ -35,7 +35,7 @@
 
 			<div class="right-list">
 			<ul>
-			<li><a href='<s:url action="GoLoginAction"/>'>LOGIN</a></li>
+			<li><a href='<s:url action="LoginAction"/>'>LOGIN</a></li>
 			<li><a href='<s:url action="MyPageAction"/>'>MYPAGE</a></li>
 			<li><a href='<s:url action="LogoutAction"/>'>LOGOUT</a></li>
 			<li><a href='<s:url action="InquiryAction"/>'>MAIL</a></li>
@@ -54,7 +54,7 @@
 
 	<div class="push"></div>
 
-	<img src="./image/cupcake.png" style="width:40px;">
+	<img src="./img/cupcake.png" style="width:40px;">
 
 	<div class="icon-push"></div>
 

@@ -51,7 +51,7 @@ pageEncoding="UTF-8"%>
 
 			<div class="right-list">
 				<ul>
-					<li><a href='<s:url action="GoLoginAction"/>'>LOGIN</a></li>
+					<li><a href='<s:url action="LoginAction"/>'>LOGIN</a></li>
 					<li><a href='<s:url action="MyPageAction"/>'>MYPAGE</a></li>
 					<li><a href='<s:url action="LogoutAction"/>'>LOGOUT</a></li>
 					<li><a href='<s:url action="InquiryAction"/>'>MAIL</a></li>

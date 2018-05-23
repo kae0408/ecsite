@@ -41,7 +41,7 @@
 
 			<div class="right-list">
 			<ul>
-			<li><a href='<s:url action="GoLoginAction"/>'>LOGIN</a></li>
+			<li><a href='<s:url action="LoginAction"/>'>LOGIN</a></li>
 			<li><a href='<s:url action="MyPageAction"/>'>MYPAGE</a></li>
 			<li><a href='<s:url action="LogoutAction"/>'>LOGOUT</a></li>
 			<li><a href='<s:url action="InquiryAction"/>'>MAIL</a></li>
@@ -107,7 +107,7 @@
 
 <!-- 商品テーブル -->
 <div class="item-table">
-ああああああ
+
 	<table>
 	<s:form action="BuyItemAction">
 
@@ -137,9 +137,7 @@
 				<span class="error-message">品切れ</span>
 			</s:else>
 			</a>
-ああああ
 			<br>
-ああああ
 			<span>購入個数:</span>
 			<s:property value="item_stock"/>個
 			<s:if test="item_stock>0">

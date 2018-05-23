@@ -12,28 +12,44 @@ public class BuyItemCompleteDAO {
 	private Connection connection = dbConnector.getConnection();
 	private DateUtil dateUtil = new DateUtil();
 	
-	private String sql = "INSERT INTO user_buy_item_transaction(item_transaction_id,total_price,total_count,user_master_id,pay,insert_date) VALUES (?,?,?,?,?,?)";
+	private String sql = "InSERT INFO uset_buy_item_transaction(item_transaction_id, total_price, total_count, user_master_id, pay, insert_date)VALUSE(?,?,?,?,?,?)";
 	
-	public void buyItemeInfo(String item_transaction_id, String user_master_id, String total_price, String total_count, String pay) throws SQLException {
-	try {
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		//* セキュリティ対策を考慮してJavaでは PreparedStatementを利用します。
-		preparedStatement.setString(1,item_transaction_id);
-		preparedStatement.setString(2,total_price);
-		preparedStatement.setString(3,total_count);
-		preparedStatement.setString(4,user_master_id);
-		preparedStatement.setString(5,pay);
-		preparedStatement.setString(6,dateUtil.getDate());
-		//*SQL文の「?」パラメータに指定した 値を挿入することができます。
+	//商品購入情報情報の登録メソッド
+	
+	public void buyItemeInfo(int item_transaction_id, String user_master_id, int total_price, int total_count, String pay, int item_stock) throws SQLException {
 
-		
-		preparedStatement.execute();
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-	}finally {
-		connection.close();
-	}
-	}
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, item_transaction_id);
+			preparedStatement.setInt(2, total_price);
+			preparedStatement.setInt(3, total_count);
+			preparedStatement.setString(4, user_master_id);
+			preparedStatement.setString(5, pay);
+			preparedStatement.setString(6, dateUtil.getDate());
 
+
+			// 購入した個数分、在庫を減らす
+
+			int buyCount = preparedStatement.executeUpdate();
+
+			if(buyCount > 0){
+
+				String sql2 = "UPDATE item_info_transaction SET item_stock=? WHERE id=?";
+
+				PreparedStatement ps = connection.prepareStatement(sql2);
+
+				ps.setInt(1,item_stock);
+				ps.setInt(2,item_transaction_id);
+				ps.executeUpdate();
+			}
+
+		} catch(Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+			connection.close();
+		}
+	}
 }
+

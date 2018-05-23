@@ -57,12 +57,13 @@
 			<result name="success">buyItemConfirm.jsp</result>
 			<result name="error">buyItem.jsp</result>
 		</action>
-
+		
+	
 <!-- BuyItemConfirmAction -->
-<action name="BuyItemConfirmAction" class="com.internousdev.template.action.BuyItemConfirmAction" method="execute">
-<result name="success">buyItemComplate.jsp</result>
-</action>
-
+	<action name="BuyItemConfirmAction" class="com.internousdev.template.action.BuyItemConfirmAction" method="execute">
+		<result name="success">buyItemComplete.jsp</result>
+		<result name="error">buyItem.jsp</result>
+	</action>
 
 <!-- BuyItemCompleteAction -->
 <action name="BuyItemCompleteAction" class="com.internousdev.template.action.BuyItemCompleteAction" method="execute">

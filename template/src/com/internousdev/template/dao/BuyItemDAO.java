@@ -30,10 +30,11 @@ public class BuyItemDAO {
 		//BuyItemDTOに格納した値をBuyItemDTOListに格納
 
 		try {
-
+			//sqlに接続します
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			//検索結果を持ってくる
 			ResultSet resultSet = preparedStatement.executeQuery();
-
+			//もし一文でもあったら下記を実行
 			while(resultSet.next()) {
 
 				BuyItemDTO dto = new BuyItemDTO();

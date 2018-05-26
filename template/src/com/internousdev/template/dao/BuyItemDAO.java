@@ -46,18 +46,18 @@ public class BuyItemDAO {
 				dto.setItem_category(resultSet.getString("item_category"));
 				dto.setItem_description(resultSet.getString("item_description"));
 				dto.setImage_file_path(resultSet.getString("img_file_path"));
-
+				
+				//new　した buyItemDTOListにdaoの情報を詰め込む
 				buyItemDTOList.add(dto);
 			}
-
+			//データベースは接続ができなかったりするからその時の
+			//エラーを表示させる。
 		} catch(Exception e) {
+			//eは変数なのでなんでもいい
 			e.printStackTrace();
 		}
-
+		//完成したらリターンで完成！！
 		return buyItemDTOList;
 	}
 
-	public List<BuyItemDTO> getBuyItemDTOList() {
-		return buyItemDTOList;
-	}
 }

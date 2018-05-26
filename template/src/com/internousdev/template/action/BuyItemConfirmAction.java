@@ -13,15 +13,23 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	
 	public Map<String,Object>session;
 	
+	// List <データ型> オブジェクト名 = new ArrayList<データ型>();
 	private ArrayList<BuyItemDTO> buyItemDTOList = new ArrayList<BuyItemDTO>();
 	
 	//商品購入情報メソッド
 	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException{
 		String result = ERROR;
+		/**
+		 * 実行メソッド（商品一覧に載せる商品情報の取得）
+		 */
 		
-		//BuyItemActionの"List" の値を取得
+		//BuyItemActionの キー"List" で色々詰め込んだbuyItemDTOList値を取得
+		//そしてnewしたbuyItemDTOListに代入
+		//最初のbuyItemDTOListはnewしたlist型
+		
 		buyItemDTOList = (ArrayList<BuyItemDTO>) session.get("list");
+		
 		for(int i = 0; i < buyItemDTOList.size(); i++) {
 			
 			int stock = buyItemDTOList.get(i).getItem_stock();
@@ -39,7 +47,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 			if(item_stock < 0) {
 				result = ERROR;
 			}else {
-				//buyItemCompleteDAOdで定義したメソッドを使う
+				//buyItemCompleteDAOで定義したメソッドを使う
 				BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 				
 				buyItemCompleteDAO.buyItemeInfo(

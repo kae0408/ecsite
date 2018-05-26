@@ -7,16 +7,18 @@ import com.internousdev.template.dto.BuyItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
-
+	
+	//listを宣言する
 	private ArrayList<BuyItemDTO> buyItemDTOList = new ArrayList<>();
 
 	//count=購入個数（複数購入の可能性があるのでList(String)型の変数）
+	//list型の変数count使うよ！
 	private List<String> count;
 
 	private String pay;
 
 	private String buyItemErrorMessage;
-
+	//Map型の変数session使うよ！
 	public Map<String, Object>  session;
 
 
@@ -25,32 +27,37 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	 */
 
 	public String execute() {
-
+		//String型のresult にSUCCESSを代入
 		String result = SUCCESS;
-
+		
+		//map型sessionにキーのcount,値のcountを詰めてる
 		session.put("count", count);
 
 		//LoginActionで保管したbuyItemDTOListの値を使用する
 		//→"buyItemDTOList"から保管されている値をgetで取得してlistに保管
-
+		
+		//キャストして確実にあってる型の場合エラーを出さないようにする
 		@SuppressWarnings("unchecked")
 		//(List<BuyItemDTO>)キャスト　型変換
 		//代入する変数 = （キャスト演算子）変換元の変数
 		//どこかでputしているListを持ってきてlistに詰めてる
+		
+		
 		List<BuyItemDTO> list = (List<BuyItemDTO>) session.get("buyItemDTOList");
 
 		/**
 		 * 合計金額を計算する処理（購入数の分だけループ処理）
 		 */
-
+		
+		
 		for(int i=0; i<count.size(); i++){
-			
 			//空のDTOを用意ここは空の箱
 			BuyItemDTO buyItemDTO = new BuyItemDTO();
-			
-			//list　にあるbuyItemName(i)番目のものをbuyItemNameに代入
+			//DTOのgetItemNameの値をある分for文で繰り返してbuyItemに代入
+			//list.get()でリストから値を取ってくる
 			String buyItemName = list.get(i).getItemName();
-			//sessionにbuyItemNameを詰めてる
+			
+			//Map型sessionにキーitemName、値buyItemNameを詰めてる
 			session.put("itemName",buyItemName);
 
 			int buyItemPrice = list.get(i).getItemPrice();
@@ -61,7 +68,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 			int item_stock = list.get(i).getItem_stock();
 
-
+			//DTOのimage_file_pathの値をある分for文で繰り返してimage_file_pathに代入
 			String image_file_path =  list.get(i).getImage_file_path();
 
 			String item_description = list.get(i).getItem_description();
@@ -69,6 +76,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 			//countはList型変数なのでget(i)で取得してint型に変換
 			int intCount = Integer.parseInt(count.get(i));
+			
 			int intPrice = list.get(i).getItemPrice();
 
 			//購入数が0でなければ実行
@@ -127,15 +135,13 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 		}//←ここで繰り返し終わり
 
-
-
 		/**
 		 * 複数購入した時の合計額を取得
 		 * listにデータを格納した回数分(購入した数分）
 		 * total_priceを取得して加算するループ処理
 		 */
 
-		if(buyItemDTOList.size()>1){
+		if(buyItemDTOList.size()>0){
 
 			int totalPrice = 0;
 			for(int a = 0; a < buyItemDTOList.size(); a++){

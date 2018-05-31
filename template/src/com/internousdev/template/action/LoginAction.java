@@ -65,6 +65,7 @@ public String execute(){
 			session.put("login_user_id", loginDTO.getLoginId());
 			session.put("userName", loginDTO.getUserName());
 			session.put("userAddress", loginDTO.getUserAddress());
+			
 		}
 	}
 	return result;

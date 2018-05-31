@@ -88,6 +88,6 @@ INSERT INTO item_info_transaction(item_name, item_price, item_stock, item_catego
 
 INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_address, user_sex, user_tell, user_mail) VALUES
 ("kanri", "123", "kanrisya","岡山","男","090-0000-1111","kanri@yahoo.co.jp"),
-("kae", "123", "taro","東京都","男","090-0000-0000","taro@yahoo.co.jp"),
+("kae", "123", "kae","東京都","男","090-0000-0000","taro@yahoo.co.jp"),
 ("hanako","789","hanako","北海道","女","080-0000-0000","hanako@gmail");
 

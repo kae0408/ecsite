@@ -42,7 +42,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 			
 			int item_stock = stock - count;
 			
-			System.out.println(item_stock);
 			
 			if(item_stock < 0) {
 				result = ERROR;

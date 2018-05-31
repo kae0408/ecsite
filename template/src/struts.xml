@@ -28,14 +28,6 @@
 			<result name="error">login.jsp</result>
 </action>
 
-<!-- 商品の購入 -->
-<!-- ProductPageAction -->
-	<action name="ProductPageAction" class="com.internousdev.template.action.ProductPageAction" method="execute">
-	<result name="success">buyItem.jsp</result>
-	<result name="master">buyItem.jsp</result>
-	<result name="error">buyItemNotLogin.jsp</result>
-</action>
-
 <!-- UserCreateAction -->
 <action name="UserCreateAction" class="com.internousdev.template.action.UserCreateAction" method="execute">
 <result name="success">userCreate.jsp</result>
@@ -61,7 +53,7 @@
 	
 <!-- BuyItemConfirmAction -->
 	<action name="BuyItemConfirmAction" class="com.internousdev.template.action.BuyItemConfirmAction" method="execute">
-		<result name="success">buyItemComplete.jsp</result>
+		<result name="success">buyItemComplate.jsp</result>
 		<result name="error">buyItem.jsp</result>
 	</action>
 
@@ -70,10 +62,12 @@
 <result name="success">home.jsp</result>
 </action>
 
-
+<!-- マイページ関係 -->
 <!-- MyPageAction -->
 <action name="MyPageAction" class="com.internousdev.template.action.MyPageAction" method="execute">
 <result name="success">myPage.jsp</result>
+<result name="error">myPageLogin.jsp</result>
+		<result name="master">master.jsp</result>
 </action>
 
 <!-- ItemSearchAction -->

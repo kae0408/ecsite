@@ -26,17 +26,23 @@
 	<p>BuyItemConfirm</p>
 	</div>
 <div>
+
 <s:form action="BuyItemConfirmAction">
+
+
+
+
 <table>
+<s:iterator value="#session.list">
 	<tr>
 		<td>商品名</td>
-		<td><s:property value="session.list.get(1).getItemName()" /></td>
+		<td><s:property value="itemName" /></td>
 	</tr>
 
 	<tr>
 		<td>値段</td>
 		<td>
-		<s:property value="session.buyItem_price" />
+		<s:property value="itemPrice" />
 		<span>円</span>
 		</td>
 	</tr> 
@@ -44,11 +50,19 @@
 	<tr>
 		<td>購入個数</td>
 		<td>
-		<s:property value="session.stock" />
+		<s:property value="count" />
 		<span>個</span>
 		</td>
 	</tr>
-	
+</s:iterator>	
+	<tr>
+		<td>合計金額</td>
+		<td>
+		<s:property value="session.totalPrice" />
+		<span>個</span>
+		</td>
+	</tr>
+
 	<tr>
 	<td>支払い方法</td>
 	<td><s:property value="session.pay" /></td>
@@ -58,6 +72,7 @@
 	<td><s:submit value="完了" /></td>
 	</tr>
 </table>
+
 </s:form>
 </div>
 </div>

@@ -100,11 +100,13 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 				buyItemDTO.setImage_file_path(image_file_path);
 
 				buyItemDTO.setItem_description(item_description);
+				
 
 				//購入個数×金額の結果をbuyItemDTOに格納
 				//"total_price"にも格納して他で使えるようにする
 				buyItemDTO.setTotal_price(intCount * intPrice);
 				session.put("total_price",intCount* intPrice);
+				
 
 				/**
 				 * 合計額の計算はここで終わり
@@ -132,7 +134,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		}
 
 		session.put("list",buyItemDTOList);
-
+		
 		}//←ここで繰り返し終わり
 
 		/**
@@ -150,8 +152,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 			}
 
-			System.out.println(totalPrice);
+			
 			session.put("totalPrice",totalPrice);
+			System.out.println(totalPrice);
 
 		}
 

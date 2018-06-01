@@ -14,9 +14,6 @@ public class MyPageDAO {
 
 	private Connection connection = dbConnector.getConnection();
 
-	/**
-	 * 商品履歴取得
-	 */
 	public ArrayList<MyPageDTO> getMyPageUserInfo(String user_master_id) throws SQLException {
 		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 

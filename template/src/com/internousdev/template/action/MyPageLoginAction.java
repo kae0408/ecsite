@@ -13,31 +13,47 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class MyPageLoginAction extends ActionSupport implements SessionAware{
+
 	private String loginUserId;
+
 	private String loginPassword;
-	public Map<String,Object> session;
+
+	public Map<String, Object> session;
+
 	private LoginDAO loginDAO = new LoginDAO();
+
 	private LoginDTO loginDTO = new LoginDTO();
+
 	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+
 	private BuyItemDTO buyItemDTO = new BuyItemDTO();
+
 	private List<BuyItemDTO> buyItemDTOList;
-	
-	//実行メソッド
+
+	/**
+	 * 実行メソッド
+	 */
 	public String execute() {
+
 		String result = ERROR;
-		//ログイン実行（LoginDAOのメソッドを使用）
+
+
+		// ログイン実行(LoginDAOのメソッドを使用）
 		//取得した値をloginDTOに格納
-		loginDTO = loginDTO.getLoginUserInfo(loginUserId,loginPassword);
-		
-		//"loginUser"にloginDTOを紐ずけ
-		session.put("loginUser",loginDTO);
-		
-		//login情報を比較
-		//loginmasterがtrueだった場合の処理
+		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
+
+		//"loginUser"にloginDTOを紐付け
+		session.put("loginUser", loginDTO);
+
+		/**
+		 * ログイン情報を比較
+		 */
+
+		//loginMasterがtrueだった場合の処理
 		//buyItemDTOListにBuyItemDAOのメソッドを使って
-		//商品情報を格納"buyItemDTOList"と紐づけ
-		//"masterId"にloginUserIdを紐づけ
-		
+		//商品情報を格納、"buyItemDTOList"と紐付け
+		//"masterId"にloginUserIdを紐付け
+
 		if(((LoginDTO) session.get("loginUser")).getLoginMaster()){
 
 			buyItemDTOList = buyItemDAO.getBuyItemInfo();
@@ -73,7 +89,12 @@ public class MyPageLoginAction extends ActionSupport implements SessionAware{
 
 			}
 		}
-
+		System.out.println("loginDTO.getLoginId():"+loginDTO.getLoginId());
+		System.out.println("loginDTO.getUserName():"+loginDTO.getUserName());
+		System.out.println("loginDTO.getUserAddress():"+loginDTO.getUserAddress());
+		System.out.println("loginDTO.getUserSex():"+loginDTO.getUserSex());
+		System.out.println("loginDTO.getUserTell():"+loginDTO.getUserTell());
+		System.out.println("loginDTO.getUserMail():"+loginDTO.getUserMail());
 		return result;
 	}
 

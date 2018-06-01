@@ -40,34 +40,43 @@ public class LoginAction extends ActionSupport implements SessionAware {
 public String execute(){
 	String result = ERROR;
 	//ログイン実行
+	//loginDAOでデータベースから検索した(ログイン画面で入力した)ID PASSをloginDTOに代入
 	loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
+	//sessionにキーloginUserでloginDTOを保存
 	session.put("loginUser", loginDTO);
 	
-	//ログイン情報を比較
+	//マスターのユーザーと分ける
+	//もしLoginMasterだったら
 	if(((LoginDTO) session.get("loginUser")).getLoginMaster()){
+		//getBuyItemInfoの情報をbuyItemDTOListに代入
 		buyItemDTOList=buyItemDAO.getBuyItemInfo();
 		session.put("buyItemDTOList", buyItemDTOList);
 		session.put("masterId", loginUserId);
+		//masterのmaster.jspに行く
 		result = "master";
 	}
 	
+	//もしmasterじゃなかったらSUCCESSでbuyItem.jspに行く
 	if(result != "master") {
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 			
 			//アイテム情報を取得
-			
+			//buyItemDAOのBuyItemInfoに入ってるBuyItemInfoの情報をbuyItemDTOListに代入
 			buyItemDTOList = buyItemDAO.getBuyItemInfo();
 			
-			//BuyItemActionで利用したいので"buyItemDTOList"と言う鍵の名前でbuyItemDTOListのデータを保管する
+			//BuyItemActionで利用したいので"buyItemDTOList"と言う鍵でbuyItemDTOListのデータを保管する
 			session.put("buyItemDTOList", buyItemDTOList);
 			session.put("id",buyItemDTO.getId());
 			session.put("login_user_id", loginDTO.getLoginId());
 			session.put("userName", loginDTO.getUserName());
 			session.put("userAddress", loginDTO.getUserAddress());
-			
+			session.put("userSex", loginDTO.getUserSex());
+			session.put("userTell", loginDTO.getUserTell());
+			session.put("userMail", loginDTO.getUserMail());
 		}
 	}
+
 	return result;
 	/*resultは結果と言う意味*/
 	}

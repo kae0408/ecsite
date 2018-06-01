@@ -32,7 +32,7 @@ public class BuyItemDAO {
 		try {
 			//sqlに接続します
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			//検索結果を持ってくる
+			//検索結果を持ってきてresultSetに入れる
 			ResultSet resultSet = preparedStatement.executeQuery();
 			//もし一文でもあったら下記を実行
 			while(resultSet.next()) {
@@ -56,7 +56,7 @@ public class BuyItemDAO {
 			//eは変数なのでなんでもいい
 			e.printStackTrace();
 		}
-		//完成したらリターンで完成！！
+		//完成したらリターンでbuyItemDTOListに入れる！！
 		return buyItemDTOList;
 	}
 

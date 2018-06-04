@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
 <!-- ヘッダー部分 -->
 <header>
 	<div id="header">
-		<div class="header-logo">ONLINE SHOP</div>
+		<div class="header-logo">Onlin Shop</div>
 
 		<div class="top-menu">
 

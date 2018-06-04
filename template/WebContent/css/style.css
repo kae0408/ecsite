@@ -1,4 +1,15 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Lobster');
+
+a{
+color:#000000;	
+text-decoration: none; 
+}
+
+a:hover{
+	border-bottom: 1px solid #ffffff;
+}
 
 /*コンテナ*/
 .container{
@@ -7,9 +18,17 @@
 /*ヘッダー*/
 .top-menu{
 	width:100%;
+    font-family: 'Lobster', cursive;
+    font-family: 'Amatic SC', cursive;
+    font-size:22px;
+}
+
+.top-menu a{
+    color: #747474 !important;
+    
 }
 .toplist{
-    width: 50%;
+    width: 45%;
     margin: 0 auto;
     
 }
@@ -26,10 +45,23 @@ body {
 	padding:0;
 	line-height:1.6;
 	letter-spacing:1px;
-	font-family:Verdana, Helvetica, sans-serif;
+		font-family :
+	YuGothic,    /* Mac用 */
+	'Yu Gothic', /* Windows用 */
+	sans-serif;
 	font-size:12px;
 	color:#333;}
-	
+.news{
+	font-family :
+	YuGothic,    /* Mac用 */
+	'Yu Gothic', /* Windows用 */
+	sans-serif;
+	font-size: 14px;
+}	
+.news p {
+    padding: 3px 0px 2px 20px;
+    margin: 0;
+}
 #login,#buy1{
 	/* 画像を常に天地左右の中央に配置 */
   background-position: center center;
@@ -73,20 +105,27 @@ table {
 
 /* ========ID LAYOUT======== */
 #top {
-    margin: 160px 0 0px 0;
+    margin: 10px 0 0px 0;
     color: #ffffff;
     background-color: rgba(30, 30, 30, 0.7);
     padding: 6px 0;
 }
 
-a{
-color:#000000;	
-text-decoration: none; 
+/*商品一覧*/
+
+.item-table{
+	width: 100%;
+}
+.dd-list{
+	margin: 0px;
+}
+.dl-list {
+    width: 30%;
+    float: left;
+    padding: 0 10px;
+    margin-bottom: 40px;
 }
 
-a:hover{
-	border-bottom: 1px solid #ffffff;
-}
 
 #header {
 	width: 100%;
@@ -96,13 +135,15 @@ a:hover{
     width: 50%;
     text-align: center;
     margin: 0 auto;
+    padding-top: 60px;
 }
 
 .header-logo {
     color: #a1885d;
     text-align: center;
     letter-spacing: 7.2px;
-    font-size: 30px;
+    font-size: 50px;
+    font-family: 'Lobster', cursive;
 }
 footer {
     width: 100%;

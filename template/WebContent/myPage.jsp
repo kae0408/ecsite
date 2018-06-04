@@ -30,16 +30,11 @@
 
 		<div class="top-menu">
 
-			<div class="left-list">
+			<div class="toplist">
 				<ul class="top-li">
-					<li><a href='<s:url action="GoHomeAction"/>'>TOP</a></li>
-					<li><a href='<s:url action="ProductPageAction"/>'>PRODUCT</a></li>
+					<li><a href='<s:url action="HomeAction"/>'>TOP</a></li>
+					<li><a href='<s:url action="BuyItemAction"/>'>PRODUCT</a></li>
 					<li><a href='<s:url action="UserCreateAction"/>'>SIGNUP</a></li>
-				</ul>
-			</div>
-
-			<div class="right-list">
-				<ul>
 					<li><a href='<s:url action="LoginAction"/>'>LOGIN</a></li>
 					<li><a href='<s:url action="MyPageAction"/>'>MYPAGE</a></li>
 					<li><a href='<s:url action="LogoutAction"/>'>LOGOUT</a></li>
@@ -92,6 +87,7 @@
 				<td>メールアドレス:</td>
 				<td><s:property value="session.userMail"/></td>
 			</tr>
+
 
 			</s:form>
 			</table>

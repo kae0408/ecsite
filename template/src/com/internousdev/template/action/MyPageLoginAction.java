@@ -39,7 +39,7 @@ public class MyPageLoginAction extends ActionSupport implements SessionAware{
 
 
 		// ログイン実行(LoginDAOのメソッドを使用）
-		//取得した値をloginDTOに格納
+		//LoginDAOでDBから取得した値をloginDTOに格納
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 
 		//"loginUser"にloginDTOを紐付け
@@ -50,12 +50,11 @@ public class MyPageLoginAction extends ActionSupport implements SessionAware{
 		 */
 
 		//loginMasterがtrueだった場合の処理
-		//buyItemDTOListにBuyItemDAOのメソッドを使って
-		//商品情報を格納、"buyItemDTOList"と紐付け
 		//"masterId"にloginUserIdを紐付け
 
 		if(((LoginDTO) session.get("loginUser")).getLoginMaster()){
-
+			//buyItemDTOListにBuyItemDAOのメソッドを使って
+			//商品情報を格納、"buyItemDTOList"と紐付け
 			buyItemDTOList = buyItemDAO.getBuyItemInfo();
 
 			session.put("buyItemDTOList",buyItemDTOList);
@@ -86,6 +85,8 @@ public class MyPageLoginAction extends ActionSupport implements SessionAware{
 			session.put("userSex",loginDTO.getUserSex());
 			session.put("userTell",loginDTO.getUserTell());
 			session.put("userMail",loginDTO.getUserMail());
+		
+			
 
 			}
 		}

@@ -49,7 +49,7 @@ public String execute(){
 	//もしLoginMasterだったら
 	if(((LoginDTO) session.get("loginUser")).getLoginMaster()){
 		//getBuyItemInfoの情報をbuyItemDTOListに代入
-		buyItemDTOList=buyItemDAO.getBuyItemInfo();
+		buyItemDTOList = buyItemDAO.getBuyItemInfo();
 		session.put("buyItemDTOList", buyItemDTOList);
 		session.put("masterId", loginUserId);
 		//masterのmaster.jspに行く

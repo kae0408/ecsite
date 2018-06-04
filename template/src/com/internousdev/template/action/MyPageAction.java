@@ -49,7 +49,8 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		if (!session.containsKey("id")) {
 			//containsKeyは指定したキーが存在するか確認を行い、キーが存在する場合はtrueを返します。
 			if(session.containsKey("masterId")){
-
+				
+			
 				return "master";
 			}
 
@@ -70,7 +71,6 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 			myPageList= myPageDAO.getMyPageUserInfo(user_master_id);
 			session.put("myPageList", myPageList);
-			System.out.println(myPageList);
 			}
 
 
@@ -96,7 +96,9 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		}
 
 		String result = SUCCESS;
+		session.put("buyItemDTOList",buyItemDTOList);
 		
+		System.out.println("myPageList():"+myPageList);
 		return result;
 	}
 

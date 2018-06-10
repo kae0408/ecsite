@@ -120,9 +120,9 @@ table {
 	margin: 0px;
 }
 .dl-list {
-    width: 30%;
+    width: 33%;
     float: left;
-    padding: 0 10px;
+    padding: 0px 1px;
     margin-bottom: 40px;
 }
 
@@ -155,8 +155,76 @@ footer {
     padding: 20px 0;
     margin-top: 60px;
 }
-		
-		
+	
+/*セレクトボックス*/
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  box-sizing: content-box;
+}
+.select-box {
+overflow: hidden;
+width: 90%;
+margin: 1em auto;
+text-align: center;
+}
+.select-box select {
+width: 100%;
+padding-right: 1em;
+cursor: pointer;
+text-indent: 0.01px;
+text-overflow: ellipsis;
+border: none;
+outline: none;
+background: transparent;
+background-image: none;
+box-shadow: none;
+-webkit-appearance: none;
+appearance: none;
+}
+.select-box select::-ms-expand {
+display: none;
+}
+.select-box.cp_sl05 {
+position: relative;
+border-radius: 2px;
+border-radius: 50px;
+background: #a1885d;
+}
+.select-box.cp_sl05::before {
+position: absolute;
+top: 0.8em;
+right: 0.8em;
+width: 0;
+height: 0;
+padding: 0;
+content: '';
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-top: 6px solid #ffffff;
+pointer-events: none;
+}
+.select-box.cp_sl05 select {
+padding: 0px 38px 8px 8px;
+color: #ffffff;
+}	
+::-ms-expand {		/* select要素のデザインを無効にする（IE用） */
+	display: none;
+}
+	
+.remark{
+	font-weight: bold;
+	font-size:11px;
+}	
 @media screen and (max-width:480px){
   /*画面幅が480pxまでの時*/
 }

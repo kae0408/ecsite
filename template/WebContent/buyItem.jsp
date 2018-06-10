@@ -136,7 +136,7 @@
 			<span>購入個数:</span>
 			<s:property value="item_stock"/>個
 			<s:if test="item_stock>0">
-				<div class="select-box">
+				<div class="select-box ">
 				<select name="count">
 					<option value="0" selected="selected">-</option>
 					<option value="1">1</option>
@@ -276,7 +276,7 @@
 			<div class="item_description">
 			<a href="#">
 			<span class="remark"><s:property value="item_description"/></span>
-			<img class="image" style="width:150px; height:100px;" src="<s:property value='image_file_path'/>" >
+			<img class="image" style="width:100%; height:140px;" src="<s:property value='image_file_path'/>" >
 
 			<br><br>
 
@@ -298,7 +298,7 @@
 
 			<span>購入個数:</span>
 				<s:if test="item_stock>0">
-					<div class="select-box">
+					<div class="select-box cp_ipselect cp_sl05">
 					<select name="count">
 						<option value="0" selected="selected">-</option>
 						<option value="1">1</option>

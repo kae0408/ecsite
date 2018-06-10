@@ -44,7 +44,7 @@ pageEncoding="UTF-8"%>
 			<div class="toplist">
 				<ul class="top-li">
 					<li><a href='<s:url action="HomeAction"/>'>TOP</a></li>
-					<li><a href='<s:url action="BuyItemAction"/>'>PRODUCT</a></li>
+					<li><a href='<s:url action="ProductPageAction"/>'>PRODUCT</a></li>
 					<li><a href='<s:url action="UserCreateAction"/>'>SIGNUP</a></li>
 					<li><a href='<s:url action="LoginAction"/>'>LOGIN</a></li>
 					<li><a href='<s:url action="MyPageAction"/>'>MYPAGE</a></li>

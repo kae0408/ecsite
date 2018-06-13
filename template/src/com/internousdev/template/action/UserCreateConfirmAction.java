@@ -8,58 +8,106 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String loginUserId;
 	private String loginPassword;
 	private String userName;
+	private String userAddress;
+	private String userSex;
+	private String userTell;
+	private String userMail;
 	public Map<String,Object> session;
-	private String errorMassage;
+	private String errorMessage;
 	
 	public String execute() {
 		String result = SUCCESS;
 		
 		if(!(loginUserId.equals(""))
-				&&!(loginPassword.equals(""))
-				&&!(userName.equals(""))) {
-				session.put("loginUserId",loginUserId);
-				session.put("loginPassword",loginPassword);
-				session.put("userName",userName);				
+				&& !(loginPassword.equals(""))
+				&& !(userName.equals(""))) 
+				&& !(userAddress.equals(""))
+				&& !(userTell.equals(""))
+				&& !(userMail.equals("")){
+			
+			UserCreateConfilmDAO userCreateConfirmDAO = new CreateConfilmDAO();
+			boolean checkId = userCreateConfirmDAO.getUserInfo(loginUserId,loginPassword);
+			
+			if(checkId) {
+				session.put("loginUserId", loginUserId);
+				session.put("loginPassword", loginPassword);
+				session.put("userName", userName);
+				session.put("userAddress", userAddress);
+				session.put("userSex", userSex);
+				session.put("userMail", userMail);
+			}else {
+				setErrorMessage("同じID、もしくはパスワードが存在します。");
+				result = ERROR;
+			}
 		}else {
-			setErrorMassage("未入力の項目があります。");
-			result = ERROR;
+				setErrorMessage("未入力の項目があります。");
+				result = ERROR;
+				}return result;
 		}
-		return result;
-	}
+	
 	public String getLoginUserId() {
 		return loginUserId;
 	}
-	public void setLoginUserId(String loginUserId){
+	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
 	}
 	
-	
-	
-	public String getLoginPassword() {
+	public String getLoginPassword(String loginPassword) {
 		return loginPassword;
 	}
-	public void setLoginPassword(String loginPassword){
+	
+	public void setloginPassword() {
 		this.loginPassword = loginPassword;
 	}
-	
 	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName){
+	
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	
-	@Override
-	public void setSession(Map < String, Object > Session){
-		this.session = Session;
-	}
-	public String getErrorMassage() {
-		return errorMassage;
+	public String getUserAddress() {
+		return userAddress;
 	}
 	
-	public void setErrorMassage(String errorMassage){
-		this.errorMassage = errorMassage;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 	
+	public String getUserSex() {
+		return userSex;
+	}
+	
+	public void setUserSex(String userSex) {
+		this.userSex = userSex;
+	}
+	
+	public String getUserTell() {
+		return userTell;
+	}
+	
+	public void setUserTell() {
+		this.userTell = userTell;
+	}
+	
+	public String getUserMail() {
+		return userMail;
+	}
+	
+	public void setUserMail(String userMail) {
+		this.userMail = userMail;
+	}
+	public String getErrorMessage() {
+		return errorMessage;
+	}
 
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
 }

@@ -75,8 +75,8 @@
 			</tr>
 
 			<tr>
-				<td><input type="button" class="button" value="戻る" onclick="submitAction('UserCreateAction')" /></td>
-				<td><input type="button" class="button" value="完了" onclick="submitAction('UserCreateCompleteAction')" /></td>
+				<td><input type="button" class="button" value="戻る" onclick="submitAction('GoUserUpdateAction')" /></td>
+				<td><input type="button" class="button" value="完了" onclick="submitAction('UserUpdateConfirmAction')" /></td>
 
 			</tr>
 			</s:form>

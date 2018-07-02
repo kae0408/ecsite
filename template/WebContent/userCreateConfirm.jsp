@@ -12,7 +12,14 @@
 <meta name="keywords" content="" />
 <title>UserCreateConfirm画面</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+	<script type="text/javascript">
+		function submitAction(url) {
+			$('form').attr('action', url);
+			$('form').submit();
+		}
+	</script>
 </head>
 <body> 
 	<div id="header">

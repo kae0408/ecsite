@@ -47,7 +47,7 @@ public class BuyItemDAO {
 				dto.setItem_description(resultSet.getString("item_description"));
 				dto.setImage_file_path(resultSet.getString("img_file_path"));
 				
-				//new　した buyItemDTOListにdaoの情報を詰め込む
+				//new　した buyItemDTOListに上で詰め込んだDBの情報をdtoに詰め込んでその情報を詰め込む
 				buyItemDTOList.add(dto);
 			}
 			//データベースは接続ができなかったりするからその時の
